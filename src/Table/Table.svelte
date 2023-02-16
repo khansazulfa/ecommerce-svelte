@@ -1,12 +1,34 @@
 <script >
+	
   import { Button, Table } from 'sveltestrap';
   import { onMount } from 'svelte';
+
   onMount(() => {
-		let t = document.getElementById('table');
-		console.log(t.textContent);
-	});
+    let t = document.getElementById('table');
+    console.log(t.textContent);
+  });
   
-</script>
+  let user =[
+    {
+      id:'0001',
+      firstname: 'Mark',
+      lastname: 'Lee',
+      username: '@mddow'
+    },
+     {
+      id:'0002',
+      firstname: 'Dern',
+      lastname: 'Wuu',
+      username: '@drrn'
+    }, {
+      id:'0001',
+      firstname: 'Joe',
+      lastname: 'Nas',
+      username: '@jjns'
+    }
+  ]
+
+    </script>
 
 <Table bordered id="table">
   <thead>
@@ -19,27 +41,20 @@
     </tr>
   </thead>
   <tbody>
-  <tr>
-       <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><Button>Ubah Data </Button></td>  
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><Button>Ubah Data </Button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td><Button>Ubah Data </Button></td>
-    </tr> 
-  </tbody>
-</Table>
+    {#each user as u, i } 
+      <tr>
+        <th scope="row">{i + 1}</th>
+        <td>{u.firstname}</td>
+        <td>{u.lastname}</td>
+        <td>{u.username}</td>
+        <td>
+           <Button>Ubah Data</Button>
+        </td>  
+      </tr>
+       {/each}
+    </tbody>
+  </Table>
+
+  <style>
+
+  </style>
