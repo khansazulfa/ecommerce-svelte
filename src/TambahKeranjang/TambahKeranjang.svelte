@@ -1,21 +1,18 @@
 <script>
-    import { Col, Container, Row, Button } from 'sveltestrap';
-
-    let keranjang = 0
-	let harga = 1000000
-
-	$: hargaTotal = keranjang * harga
-
-
-	function tambahKeranjang () {
-		keranjang +=1
-	}   
+	import { Col, Container, Row, Button } from 'sveltestrap';
+	
+	let box = 'blue'
+	function setcolor(){
+		box=='blue'?box='red':box='blue'
+	}
 </script>
 
 <Container>
 	<br>
-<Row>
-	<Col><Button on:click={tambahKeranjang}> Add to chart</Button></Col>
-	<Col>Jumlah Barang {keranjang} <br> Harga Total : Rp {hargaTotal}</Col>
-</Row>
+	<button on:click={setcolor}>Change color</button>
+	{#if box=='red'}
+	<h2 style="background-color:orangered ;"> Iam Orangered</h2>
+		{:else}
+		<h2 style="background-color: blue ;">Iam Blue</h2>
+	{/if}
 </Container>
