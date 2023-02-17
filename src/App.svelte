@@ -5,19 +5,25 @@
   import { Container, ListGroup } from 'sveltestrap';
   import List from "./List/List.svelte";
 
+  let judul = "Tabel"
+
 </script>
 
 <Navbar/>
 <br>
 <Container>
-  
-<Table/> 
-<!-- <ListGroup>
+  <!--Bind-->
+  <p>{judul}</p>
+  <input type="text" class="input mb-1" bind:value={judul} placeholder="Tulis disini"/>
+  <button class="button">Enter</button>
+  <Table/> 
+<!-- Nampilin Props -->
+<ListGroup>
   <List produk = {'Nivea'} desc = {'Hand Body'}/>
-  <List produk = {'Vaseline'}/>
-  <List/>
-  <List/> 
-</ListGroup> -->
+  <List produk = {'Vaseline'} desc = {'Hand Body'}/>
+  <List produk = {'Avoskin'} desc = {'Hand Cream'}/>
+  <List produk = {'Skingame'} desc = {'Moisturaizer'}/> 
+</ListGroup> 
 <TambahKeranjang/>
 </Container>
 <style>
