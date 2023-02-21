@@ -1,12 +1,12 @@
 <nav>
     <div class="container">
-    <h1>Be Skin</h1>
+    <h1>Your Daily Fruit</h1>
      <ul> 
-        <li> <a href="/">Home</a> </li> 
+        <li> <a href="/" class="active">Home</a> </li> 
         <li> <a href="/product">Product</a></li> 
         <li> <a href="/chart">Chart</a> </li> 
         <li> <a href="/order">Order</a> </li> 
-        <li> <a class="active" href="#keranjang">          
+        <li> <a href="#keranjang">          
         </li>  
     </ul>
     </div>
@@ -18,7 +18,6 @@
 <style>
 nav{
   padding: 0.5em;
-  background-color: white;
 } 
     ul {
         display: flex;
@@ -36,18 +35,18 @@ nav{
 
     li a {
         display: block;
-        color: #111;
+        color: gray;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;  
         }
 
 li a:hover:not(.active) {
-    color: gray;
+    color: black;
     }
 
 .active {
-  color: gray;
+  color: #703c00;
 }
 h1 {
     
