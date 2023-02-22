@@ -1,5 +1,5 @@
 <nav>
-    <div class="container">
+    <div class="navbar">
     <h1>Your Daily Fruit</h1>
      <ul> 
         <li> <a href="/" class="active">Home</a> </li> 
@@ -26,7 +26,7 @@ nav{
         list-style-type: none;
         font-size:1em;
         }
-    .container{
+    .navbar{
           display: flex;
     }
     li {
