@@ -35,36 +35,87 @@
     }
 	 cart = [...cart, product]
  }
+ 
+      $: total = cart.reduce((sum, item) => sum + item.harga * item.jumlah, 0)
 </script>
 
-<p>There are {cart.length} item in your cart</p>
 
-<div class="product-list">
-    {#each products as product }
-        <div 
-            class="image" 
-            style="background-image: url({product.image});">
+
+<h3>There are {cart.length} item in your cart</h3>
+
+<div class="container">
+        <div class="product-list">
+            {#each products as product }
+                <div class="image" style="background-image: url({product.image});">
+                <div class="deskripsi">
+                <h4>{product.name}</h4>
+                <p>Rp {product.harga}</p>
+		        <button class="btn-cart" on:click={() => addToCart(product)}>Add to Cart</button>
+                </div>
+                </div>
+            {/each}
+            
         </div>
-
-    <h4>{product.name}</h4>
-        <p>Rp {product.harga}</p>
-		<button on:click={() => addToCart(product)}>Add to Cart</button>
-    {/each}
+        <div class="card-list">
+            {#each cart as item}
+                <div class="cart-item">
+                    <img width="50" src="{item.image}" alt="{item.name}">
+                    <p>{item.jumlah}</p>
+                    <p>{item.harga * item.jumlah}</p>
+                </div>
+                
+            {/each}
+            <div class="total">
+               <h4>Total: {total}</h4>
+            </div>
+        </div>
 </div>
-{JSON.stringify(cart)}
 
 <style>
-    .product-list {
-        display: grid;
-        grid-template-columns: auto auto;
-        
+    .deskripsi{
+        margin-top: 110px;
     }
     .image{
-        height: 150px;
-        width:150px;
+        height: 100px;
+        width:100px;
         background-size: contain;
-        background-position: center;
         background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr );
+        
+    }
+    .btn-cart{
+        height: 50px;
+        width: 100px;
+        margin-bottom: -8px !important;
+        border-radius: 20px;
+        background-color: #e7c6a8;
+        border: 0;
+    }
+    .btn-cart:hover{
+        background-color: antiquewhite;
+        cursor: pointer;
+}
+    
+    .total {
+        margin-top: 125px;
+        text-align: right;
+    }
+
+    .product-list > div {
+        padding: 10px 0;
+        font-size: 20px;
+    }
+    .card-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr );
+    }
+    .cart-item{
+        margin-top: 210px;
     }
 </style>
    
