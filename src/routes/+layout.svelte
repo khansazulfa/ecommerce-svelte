@@ -1,4 +1,5 @@
 <nav>
+   
     <div class="navbar">
     <h1>Your Daily Fruit</h1>
      <ul> 
@@ -6,7 +7,7 @@
         <li> <a href="/product">Product</a></li> 
         <li> <a href="/chart">Chart</a> </li> 
         <li> <a href="/order">Order</a> </li> 
-        <li> <a href="#keranjang">          
+        <li> <a href="/cart"> <i class="material-icons">shopping_cart</i>         
         </li>  
     </ul>
     </div>
