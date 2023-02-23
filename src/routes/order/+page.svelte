@@ -1,8 +1,10 @@
 <script>
+
 let address = {
     name:"",
     email:"",
     phone:"",
+    jumlah_pesanan:"",
     street:"",
 }
 
@@ -10,13 +12,16 @@ let address = {
 
 <div class="shipping-order">
     <div>
+        <h3>Shipping order</h3>
         <p>Name</p>
         <input bind:value={address.name}/>
         <p>Email</p>
         <input bind:value={address.email} />
         <p>Phone</p>
         <input bind:value={address.phone} />
-        <p>Address</p>
+         <p>Jumlah Pesanan</p>
+        <input bind:value={address.jumlah_pesanan} />
+        <p>Alamat</p>
         <textarea bind:value={address.street} col="24" rows="6"></textarea>
         <br>
         <button class="btn">Checkout</button>
