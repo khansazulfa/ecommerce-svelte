@@ -1,6 +1,7 @@
 <script>
+    
 	let cart = [];
- let products = [
+    let products = [
     {
         id: 1,
         name: "Apple", 
@@ -37,6 +38,28 @@
  }
  
       $: total = cart.reduce((sum, item) => sum + item.harga * item.jumlah, 0)
+
+  const minusItem = (product) => {
+    for (let item of cart){
+        if(item.id === product.id ){
+            product.jumlah -= 1
+            cart = cart;
+            return;
+        }
+    }
+	 cart = [...cart, product]
+ }
+  const plusItem = (product) => {
+  for (let item of cart){
+        if(item.id === product.id ){
+            product.jumlah += 1
+            cart = cart;
+            return;
+        }
+    }
+	 cart = [...cart, product]
+ }
+
 </script>
 
 
@@ -58,12 +81,15 @@
         </div>
         <div class="card-list">
             {#each cart as item}
+            {#if item.jumlah > 0}
                 <div class="cart-item">
                     <img width="50" src="{item.image}" alt="{item.name}">
                     <p>{item.jumlah}</p>
+                    <button on:click={() => minusItem(item)}>-</button>
+                    <button on:click={() => plusItem(item)}>+</button>
                     <p>{item.harga * item.jumlah}</p>
                 </div>
-                
+                {/if}
             {/each}
             <div class="total">
                <h4>Total: {total}</h4>

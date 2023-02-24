@@ -1,5 +1,6 @@
-<script>
+<script> 
 
+let cart=[];
 let address = {
     name:"",
     email:"",
@@ -8,6 +9,10 @@ let address = {
     street:"",
 }
 
+    const checkOut = () => {
+        alert(JSON.stringify(cart)),
+        alert(JSON.stringify(address))
+    }
 </script>
 
 <div class="shipping-order">
@@ -24,12 +29,13 @@ let address = {
         <p>Alamat</p>
         <textarea bind:value={address.street} col="24" rows="6"></textarea>
         <br>
-        <button class="btn">Checkout</button>
+        <button on:click={checkOut} class="btn" >Checkout</button>
     </div>
     <div class="current-address">
         <p>{address.name}</p>
         <p>{address.email}</p>
         <p>{address.phone}</p>
+        <p>{address.jumlah_pesanan}</p>
         <p>{address.street}</p>
    </div>
 </div>

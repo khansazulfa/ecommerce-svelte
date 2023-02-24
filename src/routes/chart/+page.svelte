@@ -1,56 +1,46 @@
-  <canvas id="myChart" width="400" height="400" bind:this={ctx}></canvas>
+ <canvas id="myChart" width="400" height="400"></canvas>
 
 <script>
-	import { onMount } from 'svelte';
-    import Chart from 'chart.js/auto/auto.js';
 
-    let ctx;
+    import { onMount } from 'svelte';
 
-    onMount(
-        async()=> {
-            var myChart = new Shart (ctx, {
-                type:'bar',
-                data:{
-                    labels: [Red, Blue, Yellowe, Green, Purple, orange],
-                    datasets:[{
-                        labels:'# of Votes',
-                        data:[12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba (255, 99, 132, 0.2)',
-                            'rgba (255, 99, 132, 0.2)',
-                            'rgba (255, 99, 132, 0.2)',
-                            'rgba (255, 99, 132, 0.2)',
-                            'rgba (255, 99, 132, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba (255, 99,132, 1)',
-                            'rgba (255, 99,132, 1)',
-                            'rgba (255, 99,132, 1)',
-                            'rgba (255, 99,132, 1)',
-                            'rgba (255, 99,132, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                option: {
-                    scales:{
-                        yAvexs:[{
-                            ticks:{
-                                beginAtZero:true
-                            }
-                        }]
-                    }
+    function createChart () {       
+
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+            data: {
+                labels: [ 'Apple', 'Orange', 'Strawberry' ],
+                datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 7],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                    ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                    ],
+                borderWidth: 1
+            }]
+        },
+            options: {
+                scales: {
+                y: {
+                beginAtZero: true
                 }
-            }) 
-
+            }
         }
-    );
+    });
+}
+onMount(createChart);
 </script>
 
 
-<div>
-  <canvas id="myChart"></canvas>
-</div>
+
 <h3>Shopping Bag</h3>
 
 <div class="shopping-bag">
