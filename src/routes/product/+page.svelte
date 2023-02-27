@@ -1,6 +1,8 @@
 <script>
-    
+	import { onMount } from "svelte";
+
 	let cart = [];
+    let total = 0;
     let products = [
     {
         id: 1,
@@ -26,40 +28,71 @@
     }
 ]
  
- const addToCart = (product) => {
+const addToCart = (product) => {
     for (let item of cart){
         if(item.id === product.id ){
             product.jumlah += 1
             cart = cart;
+            localStorage.setItem('items', JSON.stringify(cart));
             return;
         }
     }
 	 cart = [...cart, product]
+
+     //set to local storage
+     localStorage.setItem('items', JSON.stringify(cart));
  }
  
-      $: total = cart.reduce((sum, item) => sum + item.harga * item.jumlah, 0)
 
-  const minusItem = (product) => {
+const minusItem = (product) => {
     for (let item of cart){
         if(item.id === product.id ){
             product.jumlah -= 1
             cart = cart;
+            localStorage.setItem('items', JSON.stringify(cart));
             return;
         }
     }
-	 cart = [...cart, product]
+    cart = [...cart, product]
+     //set to local storage
+    localStorage.setItem('items', JSON.stringify(cart));
  }
-  const plusItem = (product) => {
+
+const plusItem = (product) => {
   for (let item of cart){
         if(item.id === product.id ){
             product.jumlah += 1
             cart = cart;
+            localStorage.setItem('items', JSON.stringify(cart));
             return;
         }
     }
-	 cart = [...cart, product]
+	cart = [...cart, product]
+     //set to local storage
+    localStorage.setItem('items', JSON.stringify(cart));
  }
 
+    onMount(function() {
+        bugStorage();
+    });
+
+	function bugStorage() {
+		if (typeof window !== "undefined") {
+            const isReady = localStorage.getItem('items')
+            if(isReady){
+                const parse = JSON.parse(isReady);
+                parse.map(function(val, key) {
+                    if(val.jumlah > 0){
+                        cart = [...cart, val]
+                    }
+                });
+            }
+		}
+	}
+
+$: {
+    total = cart.reduce((sum, item) => sum + item.harga * item.jumlah, 0)
+}
 </script>
 
 

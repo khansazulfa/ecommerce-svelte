@@ -1,3 +1,6 @@
+<script>
+    import "../app.css";
+</script>
 <nav>
    
     <div class="navbar">
@@ -12,7 +15,7 @@
     </ul>
     </div>
 </nav> 
-<div class="container">
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl ">
 <slot />
 </div>
 
