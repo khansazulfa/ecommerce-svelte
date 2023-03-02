@@ -1,21 +1,41 @@
 <script>
     import "../app.css";
 </script>
-<nav>
-   
-    <div class="navbar">
-    <h1>Your Daily Fruit</h1>
-     <ul> 
-        <li> <a href="/" class="active">Home</a> </li> 
-        <li> <a href="/product">Product</a></li> 
-        <li> <a href="/chart">Chart</a> </li> 
-        <li> <a href="/order">Order</a> </li> 
-        <li> <a href="/cart"> <i class="material-icons">shopping_cart</i>         
-        </li>  
+
+<nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-600">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+  <a href="/" class="flex items-center">
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Fruit</span>
+  </a>
+  <div class="flex md:order-2">
+      <button type="button" class="text-black bg-orange-200 hover:bg-orange-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Get started</button>
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <li>
+        <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-orange-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+      </li>
+      <li>
+        <a href="/product" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Product</a>
+      </li>
+      <li>
+        <a href="/chart" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cart</a>
+      </li>
+      <li>
+        <a href="/order" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Order</a>
+      </li>
+      <li><a href="/cart" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"> <i class="material-icons">shopping_cart</i></li> 
     </ul>
-    </div>
-</nav> 
-<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl ">
+  </div>
+  </div>
+</nav>
+
+
+<div class="container">
 <slot />
 </div>
 
@@ -30,33 +50,7 @@ nav{
         list-style-type: none;
         font-size:1em;
         }
-    .navbar{
-          display: flex;
-    }
-    li {
-        margin-right: 20px; 
-    }
 
-    li a {
-        display: block;
-        color: gray;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;  
-        }
-
-li a:hover:not(.active) {
-    color: black;
-    }
-
-.active {
-  color: #703c00;
-}
-h1 {
-    
-    font-size: 1.3em;
-    font-weight: normal;
-}
 
 </style>
 
