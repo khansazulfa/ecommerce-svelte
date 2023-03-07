@@ -103,12 +103,12 @@
 </div>
 
 
-<div class="container shadow-sm mt-6 grid grid-cols-1 md:grid-cols-4 mx-auto gap-5">
-    <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0">
+<div class="container mt-6 grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 ">
+    <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
         <div > 
             <img src="src/images/apple.png" alt="apple" class="w-20">
         </div>
-        <div class="ml-4">
+        <div class="mx-auto">
             <p class="font-bold text-slate-700 text-md"> Apple</p>
             <p class="font-light text-slate-400">Rp 10.000 / kg</p>
             <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
@@ -117,7 +117,7 @@
         </div>
     </div>
 
-     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0">
+     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-xl">
         <div > 
             <img src="src/images/orange.png" alt="orange" class="w-20">
         </div>
@@ -130,7 +130,7 @@
         </div>
     </div>
 
-     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0">
+     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-xl">
         <div > 
             <img src="src/images/strawberry.png" alt="strawberry" class="w-20">
         </div>
@@ -142,17 +142,92 @@
         </div>
     </div>
 
-    <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0">
-        <div > 
-            <img src="src/images/strawberry.png" alt="strawberry" class="w-20">
+</div>
+
+
+<!-- Sudah berfungsi-->
+<h3 class="mt-6">There are {cart.length} item in your cart</h3>
+
+<div class="container">
+    <div class="product-list">
+        {#each products as product }
+        <div class="image" style="background-image: url({product.image});">
+            <div class="deskripsi">
+                <h4>{product.name}</h4>
+                <p>Rp {product.harga}</p>
+                <button class="btn-cart" on:click={() => addToCart(product)}>Add to Cart</button>
+            </div>
         </div>
-        <div class="ml-4">
-            <p class="font-bold text-slate-700 text-md">Strawberry</p>
-            <p class="font-light text-slate-400">Rp 20.000 / kg</p>
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300  focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
+        {/each}
+        
+    </div>
+    <div class="card-list">
+        {#each cart as item}
+        {#if item.jumlah > 0}
+        <div class="cart-item">
+            <img width="50" src="{item.image}" alt="{item.name}">
+            <p>{item.jumlah}</p>
+            <button on:click={() => minusItem(item)}>-</button>
+            <button on:click={() => plusItem(item)}>+</button>
+            <p>{item.harga * item.jumlah}</p>
+        </div>
+        {/if}
+        {/each}
+        <div class="total">
+            <h4>Total: {total}</h4>
         </div>
     </div>
-
+    
+    
     
 </div>
+
+<style>
+    .deskripsi{
+        margin-top: 110px;
+    }
+    .image{
+        height: 100px;
+        width:100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr );
+        
+    }
+    .btn-cart{
+        height: 50px;
+        width: 100px;
+        margin-bottom: -8px !important;
+        border-radius: 20px;
+        background-color: #e7c6a8;
+        border: 0;
+        font-size: 12px;
+    }
+    .btn-cart:hover{
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+    
+    .total {
+        margin-top: 125px;
+        text-align: right;
+    }
+    
+    .product-list > div {
+        padding: 10px 0;
+        font-size: 20px;
+    }
+    .card-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr );
+    }
+    .cart-item{
+        margin-top: 210px;
+    }
+</style>
+
