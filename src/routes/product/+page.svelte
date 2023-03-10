@@ -1,4 +1,5 @@
 <script>
+	import { cartProduct } from './../../stores/formStore.js';
     import { onMount } from "svelte";
         
     let cart = [];
@@ -93,6 +94,13 @@
     $: {
         total = cart.reduce((sum, item) => sum + item.harga * item.jumlah, 0)
     }
+
+
+    function addProduct(produk) {
+        $cartProduct.push (produk);
+        $cartProduct = $cartProduct;
+
+    }
 </script>
 
 <div class="container max-w-lg bg-white my-6 border-b-2 rounded-xl mx-auto p-5 shadow-sm">
@@ -104,63 +112,64 @@
 
 
 <div class="container mt-6 grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 ">
+    {#each products as product }
     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
-        <div > 
-            <img src="src/images/apple.png" alt="apple" class="w-20">
-        </div>
-        <div class="mx-auto">
-            <p class="font-bold text-slate-700 text-md"> Apple</p>
-            <p class="font-light text-slate-400">Rp 10.000 / kg</p>
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
+        <div style="background-image: url({product.image});" class="image w-20"></div>
+        <div class="">
+            <p class="font-bold text-slate-700 text-md"> {product.name}</p>
+            <p class="font-light text-slate-400">{product.harga}</p>
+
+            
+            <div>
+                <p></p>
+
+            <button type="button" on:click={() => addProduct(product)} class="mt-3 bg-orange-200 text-slate-700 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> add to cart </button>
+
+            <button type="button"  class=" md:hidden mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
            
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
+            <button type="button"  class="md:hidden mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
+
+            
+            <p class="flex"></p>
+
+
+            </div>
+            
+        
         </div>
     </div>
-
-     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-xl">
-        <div > 
-            <img src="src/images/orange.png" alt="orange" class="w-20">
-        </div>
-        <div class="ml-4">
-            <p class="font-bold text-slate-700 text-md">Orange</p>
-            <p class="font-light text-slate-400">Rp 8.000 / kg</p>
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
-           
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300  focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
-        </div>
-    </div>
-
-     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-xl">
-        <div > 
-            <img src="src/images/strawberry.png" alt="strawberry" class="w-20">
-        </div>
-        <div class="ml-4">
-            <p class="font-bold text-slate-700 text-md">Strawberry</p>
-            <p class="font-light text-slate-400">Rp 20.000 / kg</p>
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300  focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
-            <button type="button" class="mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
-        </div>
-    </div>
-
+    {/each}
 </div>
 
 
-<!-- Sudah berfungsi-->
-<h3 class="mt-6">There are {cart.length} item in your cart</h3>
 
-<div class="container">
-    <div class="product-list">
-        {#each products as product }
-        <div class="image" style="background-image: url({product.image});">
+
+<!-- Sudah berfungsi-->
+<div class="container max-w-lg bg-white my-6 border-b-2 rounded-xl mx-auto p-5 shadow-sm">
+    <div>
+        <h1 class="3-m font-bold text-slate-700 mb-3">There are {cart.length} item in your cart</h1>
+        <p class="text-slate-500">Pincode: 800015</p>
+    </div>
+</div>
+
+
+<div class="container mt-3 grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 ">
+     {#each products as product }
+    <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
+       
+        <div class="image w-20" style="background-image: url({product.image});" >
             <div class="deskripsi">
                 <h4>{product.name}</h4>
                 <p>Rp {product.harga}</p>
                 <button class="btn-cart" on:click={() => addToCart(product)}>Add to Cart</button>
             </div>
-        </div>
-        {/each}
-        
+        </div> 
+     <div>
+        <img src="{product['image']}" alt="">
+     </div>   
+    
     </div>
+     {/each} 
     <div class="card-list">
         {#each cart as item}
         {#if item.jumlah > 0}
@@ -169,6 +178,7 @@
             <p>{item.jumlah}</p>
             <button on:click={() => minusItem(item)}>-</button>
             <button on:click={() => plusItem(item)}>+</button>
+            <button on:click={() => plusItem(item)}>x</button>
             <p>{item.harga * item.jumlah}</p>
         </div>
         {/if}
@@ -177,10 +187,10 @@
             <h4>Total: {total}</h4>
         </div>
     </div>
+ </div>   
     
     
-    
-</div>
+
 
 <style>
     .deskripsi{
@@ -194,11 +204,7 @@
         background-position: center;
     }
     
-    .product-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr );
-        
-    }
+ 
     .btn-cart{
         height: 50px;
         width: 100px;
@@ -218,10 +224,7 @@
         text-align: right;
     }
     
-    .product-list > div {
-        padding: 10px 0;
-        font-size: 20px;
-    }
+   
     .card-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr );
