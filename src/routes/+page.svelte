@@ -4,8 +4,11 @@
     import Todo from "../components/Todo.svelte";
 </script>
 
+<div class="mt-6 ">
+</div>
+
 <main>
-    <h1 class="text-2xl font-bold text-center text-gray-800 md:text-1xl mt-3">Form</h1>
+
     <TodoForm/>
 
 {#each $todos as todo}

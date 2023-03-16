@@ -103,10 +103,9 @@
     }
 </script>
 
-<div class="container max-w-lg bg-white my-6 border-b-2 rounded-xl mx-auto p-5 shadow-sm">
+<div class="container max-w-lg  my-4 mx-auto p-5 ">
     <div>
-        <h1 class="3-m font-bold text-slate-700 mb-3">My Cart</h1>
-        <p class="text-slate-500">Pincode: 800015</p>
+        <h1 class="3-m font-bold text-slate-700 mb-1 text-center">Shop Now</h1>
     </div>
 </div>
 
@@ -119,6 +118,57 @@
             <p class="font-bold text-slate-700 text-md"> {product.name}</p>
             <p class="font-light text-slate-400">{product.harga}</p>
 
+            <div>
+                <p></p>
+
+            <button type="button" on:click={() => addProduct(product)} class="mt-3 bg-orange-200 text-slate-700 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> add to cart </button>
+
+            <button type="button"  class=" md:hidden mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
+           
+            <button type="button"  class="md:hidden mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
+
+            
+            <p class="flex"></p>
+
+
+            </div>
+            
+        
+        </div>
+    </div>
+    {/each}
+    {#each products as product }
+    <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
+        <div style="background-image: url({product.image});" class="image w-20"></div>
+        <div class="">
+            <p class="font-bold text-slate-700 text-md"> {product.name}</p>
+            <p class="font-light text-slate-400">{product.harga}</p>
+            
+            <div>
+                <p></p>
+
+            <button type="button" on:click={() => addProduct(product)} class="mt-3 bg-orange-200 text-slate-700 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> add to cart </button>
+
+            <button type="button"  class=" md:hidden mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> + </button>
+           
+            <button type="button"  class="md:hidden mt-3 bg-orange-200 text-orange-500 font-bold border-gray-300 focus:outline-none hover:bg-orange-300 focus:ring-4 focus:ring-gray-200 rounded-full text-sm px-4 py-1  mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark-focus:ring-gray-700"> - </button>
+
+            
+            <p class="flex"></p>
+
+
+            </div>
+            
+        
+        </div>
+    </div>
+    {/each}
+    {#each products as product }
+    <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
+        <div style="background-image: url({product.image});" class="image w-20"></div>
+        <div class="">
+            <p class="font-bold text-slate-700 text-md"> {product.name}</p>
+            <p class="font-light text-slate-400">{product.harga}</p>
             
             <div>
                 <p></p>
@@ -164,9 +214,7 @@
                 <button class="btn-cart" on:click={() => addToCart(product)}>Add to Cart</button>
             </div>
         </div> 
-     <div>
-        <img src="{product['image']}" alt="">
-     </div>   
+
     
     </div>
      {/each} 

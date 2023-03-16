@@ -1,6 +1,8 @@
 <script>
     import "../app.css";
     import { cartProduct } from '../stores/formStore';
+    import { pageSelected } from '../stores/formStore';
+    import cart from '../routes/cart/+page.svelte';
     
 </script>
 
@@ -18,10 +20,10 @@
                             <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/">
                                 Home
                             </a>
-                            <a class="text-gray-800 dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/product">
+                            <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/product">
                                 Product
                             </a>
-                            <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/chart">
+                            <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/cart">
                                 Cart
                             </a>
                             <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/order">
@@ -35,8 +37,8 @@
                         <div class="relative ml-3">
                             <div class="relative inline-block text-left">
                                 <div>
-                                    <button type="button" class="  flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500" id="options-menu">
-                                     <i class="material-icons">shopping_cart</i>
+                                    <button type="button" class="  flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500" id="options-menu"> <a href="/order">
+                                     <i class="material-icons">shopping_cart</i></a>
                                         <span class="absolute insert-0 object-right-top -mr-6">
                                           <div class="inline-flex items-center px-1.5 py-0.5 bg-red-600 text-white
                                             rounded-full ml-2">
@@ -67,7 +69,7 @@
                 <a class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/product">
                     Product
                 </a>
-                <a class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/chart">
+                <a class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/cart">
                     Cart
                 </a>
                 <a class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/order">
@@ -79,12 +81,50 @@
 </div>
 
 
-
 <div class="container">
 <slot />
 </div>
 
+
+<!--Footer-->
+<div class="footer py-12 bg-lime-900 text-white" id="footer">
+    <div class="container mx-auto px-4">
+        <div class="footer-box flex justify-around lg:flex-row flex-col lg:gap-0 gap-10">
+            <div class="box lg:w-[500px]">
+                <div class="logo flex items-center gap-2">
+                    <img src="/src/assets/icon/logo.png" alt="logo" class="w-16 rounded-full">
+                    <h1 class="font-bold text-2xl">Truly</h1>
+                </div>
+                <div class="desc">
+                <p class="opacity-50 text-base leading-loose">Truly a platform concentrating on healthy lifestyle and healthy food.</p>
+                </div>
+            </div>
+            <div class="box lg:w-[100px] gap-2 flex flex-col">
+                <h4 class="font-blod text-lg">Menu</h4>
+                <a href="/" class="opacity-50 hover:opacity-100">Home</a>
+                <a href="/about" class="opacity-50 hover:opacity-100">About</a>
+                <a href="/product" class="opacity-50 hover:opacity-100">Product</a>
+                <a href="/project" class="opacity-50 hover:opacity-100">Project</a>
+                <a href="/contact" class="opacity-50 hover:opacity-100">Contact</a>
+            </div>
+            <div class="box lg:w-[200px] gap-2 flex flex-col">
+                <h4 class="font-blod text-lg">Company</h4>
+                <a href="#x" class="opacity-50 hover:opacity-100">Terms of Services</a>
+                <a href="#x" class="opacity-50 hover:opacity-100">Privacy Policy</a>
+                <a href="#x" class="opacity-50 hover:opacity-100">Blog</a>
+                <a href="#x" class="opacity-50 hover:opacity-100">Cookies Setting</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Tutup Footer-->
+
+<!--Button back to top-->
+<a href="#home">
+    <i class="fa-solid fa-circle-arrow-up fixed bottom-10 right-10 text-5xl text-lime-600 cursor-pointer hover:text-lime-700 z-20 " title="Kembali ke Atas"></i>
+</a>
 <style>
+
 nav{
   padding: 0.5em;
 } 

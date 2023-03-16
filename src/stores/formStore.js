@@ -2,6 +2,7 @@ import { writable } from "svelte/store";
 
 export const todos = writable([]);
 export const cartProduct = writable([]);
+export const pageSelected = writable("");
 
 export const addTodo = (text) => {
     todos.update((cur) => {
