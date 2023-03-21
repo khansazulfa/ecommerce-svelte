@@ -1,0 +1,1 @@
+export api_url = 'https://1277-118-96-183-222.ap.ngrok.io'

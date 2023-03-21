@@ -1,33 +1,53 @@
 <script>
 	import { cartProduct } from './../../stores/formStore.js';
     import { onMount } from "svelte";
-        
+    import axios from "axios";
+
+    let products = [];
+    async function getProduct() {
+        const response = await axios({
+			method: 'get',
+			url: 'https://dummyjson.com/products',
+			headers: {
+                
+            },
+		});
+
+		if (response.status === 200) {
+            if(response.data){
+                products = response.data.products
+                console.log(products)
+            }
+		}
+    }
+
+    getProduct();
     let cart = [];
     let total = 0;
-    let products = [
-    {
-        id: 1,
-        name: "Apple", 
-        image: 'src/images/apple.png',
-        harga: 10000,
-        jumlah: 1
-    },
-    {
-        id: 2,
-        name: "Jeruk",
-        image: 'src/images/orange.png',
-        harga: 5000,
-        jumlah: 1
+    // let products = [
+    // {
+    //     id: 1,
+    //     name: "Apple", 
+    //     image: 'src/images/apple.png',
+    //     harga: 10000,
+    //     jumlah: 1
+    // },
+    // {
+    //     id: 2,
+    //     name: "Jeruk",
+    //     image: 'src/images/orange.png',
+    //     harga: 5000,
+    //     jumlah: 1
         
-    },
-    {
-        id: 3,
-        name: "Strawberry", 
-        image: 'src/images/strawberry.png', 
-        harga: 8000,
-        jumlah: 1
-    }
-    ]
+    // },
+    // {
+    //     id: 3,
+    //     name: "Strawberry", 
+    //     image: 'src/images/strawberry.png', 
+    //     harga: 8000,
+    //     jumlah: 1
+    // }
+    // ]
     
     const addToCart = (product) => {
         for (let item of cart){
@@ -113,10 +133,10 @@
 <div class="container mt-6 grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 ">
     {#each products as product }
     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
-        <div style="background-image: url({product.image});" class="image w-20"></div>
+        <div style="background-image: url({product.images[0]});" class="image w-20"></div>
         <div class="">
-            <p class="font-bold text-slate-700 text-md"> {product.name}</p>
-            <p class="font-light text-slate-400">{product.harga}</p>
+            <p class="font-bold text-slate-700 text-md"> {product.brand}</p>
+            <p class="font-light text-slate-400">{product.price}</p>
 
             <div>
                 <p></p>
@@ -163,7 +183,7 @@
         </div>
     </div>
     {/each}
-    {#each products as product }
+    <!-- {#each products as product }
     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
         <div style="background-image: url({product.image});" class="image w-20"></div>
         <div class="">
@@ -188,7 +208,7 @@
         
         </div>
     </div>
-    {/each}
+    {/each} -->
 </div>
 
 
@@ -203,7 +223,7 @@
 </div>
 
 
-<div class="container mt-3 grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 ">
+<!-- <div class="container mt-3 grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 ">
      {#each products as product }
     <div class="relative bg-gray-100 rounded-md p-5 flex mx-5 md:mx-0 shadow-md">
        
@@ -235,7 +255,7 @@
             <h4>Total: {total}</h4>
         </div>
     </div>
- </div>   
+ </div>    -->
     
     
 
