@@ -2,8 +2,13 @@
     import "../app.css";
     import { cartProduct } from '../stores/formStore';
     import { pageSelected } from '../stores/formStore';
-    import cart from '../routes/cart/+page.svelte';
-    
+
+    let cart = [];
+    let products = [];
+
+    const addToCart= (products) => {
+        alert (JSON.stringify(products))
+    }  
 </script>
 
 <!--Navbar-->
@@ -36,9 +41,9 @@
                     <div class="flex items-center ml-4 md:ml-6">
                         <div class="relative ml-3">
                             <div class="relative inline-block text-left">
-                                <div>
-                                    <button type="button" class="  flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500" id="options-menu"> <a href="/order">
-                                        <i class="material-icons">shopping_cart</i></a>
+                                <div class="flex">
+                                    <button on:click={() => addToCart(products)} type="button" class="  flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium hover:text-lime-600" id="options-menu"> 
+                                        <i class="fa fa-shopping-cart"></i>
                                         <span class="absolute insert-0 object-right-top -mr-6">
                                             <div class="inline-flex items-center px-1.5 py-0.5 bg-red-600 text-white
                                             rounded-full ml-2">
@@ -46,7 +51,14 @@
                                         </div>
                                     </span>
                                 </button>
+                                <button type="button" class=" items-center justify-center w-full rounded-md -mt-1 px-4 py-2 text-sm font-medium hover:text-lime-600" id="options-menu"> 
+                                    <a href="/signIn">
+                                    <i class="fa fa-user w-6"></i></a>
+                                    <span class="absolute insert-0 object-right-top -mr-6">
+                                    </span>
+                                 </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
