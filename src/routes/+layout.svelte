@@ -18,7 +18,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class=" flex items-center">
                     <a class="flex-shrink-0" href="/">
-                        <img class="md:w-16 w-12" src="/src/images/logo-1.png" alt="Workflow"/>
+                        <span class="ml-auto text-2xl font-bold text-lime-600 tracking-wide mr-6">Tokoku</span>
                     </a>
                     <div class="hidden md:block">
                         <div class="flex items-baseline ml-6 space-x-4">

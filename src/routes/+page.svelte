@@ -16,7 +16,7 @@
                 <button class="w-48 h-12 bg-lime-600 rounded-lg font-bold hover:bg-lime-700 cursor-pointer text-white animate__animated animate__fadeInUp animate__delay-1s">About Truly</button>
             </div>
             <div class="box lg:w-1/2 lg:order-2 order-1 lg:pt-0 pt-10">
-                <img src="/src/images/slogan.jpg" alt="header" class="xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[250px] w-[200px] block ml-auto animate__animated animate__fadeInUp animate__delay-1s">
+                <img src="/src/images/how-to-order1.png" alt="header" class="xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[250px] w-[200px] block ml-auto animate__animated animate__fadeInUp animate__delay-1s">
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
                 <p class="md:w-3/4 w-full mx-auto md:text-base sm:text-sm text-xs text-slate-400" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere ipsam distinctio quibusdam cumque repellendus accusantium beatae, labore tempora sit fuga earum in iure vitae aut animi nihil quaerat odio veniam.</p>
             </div>
             <div class="box grid md:grid-cols-2 grid-cols-1 gap-16 pt-16 items-center">
-                <img src="assets/image/Services.svg" alt="" class="w-[450px] md:justify-self-end justify-self-center" >
+                <img src="src/images/product-sale.png" alt="services" class="w-[450px] md:justify-self-end justify-self-center" >
                 <div class="desc md:justify-self-start justify-self-center" >
                     <p class="flex items-center gap-4 text-xl font-bold mb-6">
                         <i class="fa-solid fa-circle-check text-4xl text-lime-600"></i> Langkah awal menuju sukses</p>
@@ -87,14 +87,14 @@
                     <p>Orang Bergabung</p>
                     </div>
                 </div>
-                <div class="box flex justify-center items-center flex-wrap gap-4 pt-16">
+                <!-- <div class="box flex justify-center items-center flex-wrap gap-4 pt-16">
                 <img src="assets/image/services1.jpg" alt="unsplas.com" class="w-[300px] h-[250px]"/>
                 <img src="assets/image/services2.jpg" alt="unsplas.com" class="w-[300px] h-[250px]" />
                 <img src="assets/image/services3.jpg" alt="unsplas.com" class="w-[300px] h-[250px]"/>
                 <img src="assets/image/services4.jpg" alt="unsplas.com" class="w-[300px] h-[250px]"/>
                 <img src="assets/image/services5.jpg" alt="unsplas.com" class="w-[300px] h-[250px]"/>
                 <img src="assets/image/services6.jpg" alt="unsplas.com" class="w-[300px] h-[250px]"/>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -130,7 +130,7 @@
 <!--Tutup Contact-->
 
 
-<TodoForm/>
+<!-- <TodoForm/> -->
 
 {#each $todos as todo}
 <Todo todo={todo} index={todo.id}/>
