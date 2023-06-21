@@ -10,22 +10,16 @@ import { cartProduct } from './../../stores/formStore.js';
     </div>
 </div>
 
-
-<h3>Shopping Bag</h3>
-
-<div class="shopping-bag">
-    <table>
-        <thead>
-            <tr>
-                <th>Produk Terpilih</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>produk</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="mt-4 w-full">
+    
+     <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="nama-barang">Nama Barang</label>
+        <input class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+     <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="jumlah-pesana">Jumlah Pesanan</label>
+        <input class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+    </div>
 </div>
 
 <style>
